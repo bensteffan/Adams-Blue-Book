@@ -1,0 +1,7 @@
+*
+!*.bib
+!*.md
+!*.sty
+!*.tex
+!*.txt
+!.gitignore
