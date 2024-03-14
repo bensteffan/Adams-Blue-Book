@@ -25,7 +25,6 @@
 
 \usepackage{comment} 
 
-
 \usepackage{titlesec}
 \titleformat{\chapter}[hang]
 {\scshape\fillast}
@@ -204,24 +203,18 @@ mark=at position 1 with {\draw[#1] (ta-base-1) -- (0,1pt);
 \newcommand{\limi}{\mathop{\mathrm{lim}^1}}
 \newcommand{\limo}{\mathop{\mathrm{lim}^0}}
 
-
-
-\makeatletter
-\@addtoreset{chapter}{part}
-\makeatother
-
-
-
 \usepackage[bottom]{footmisc}
 
 \renewcommand{\tilde}[1]{\widetilde{#1}}
 
 % hyperref should be loaded last
 \usepackage[
-	pdftitle = {Stable\ Homotopy\ and\ Generalized\ Homology},
-	pdfauthor = {J.\ F.\ Adams},
 	bookmarks = true, 
 	colorlinks = true, 
 	linkcolor = blue, 
 	citecolor = red
 ]{hyperref}
+
+\makeatletter
+\@addtoreset{chapter}{part}
+\makeatother
