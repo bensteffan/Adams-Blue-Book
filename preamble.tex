@@ -116,7 +116,6 @@
 \usepackage{xcolor}
 \newcommand{\plscite}[1]{{\color{purple} #1}} %Changed from green to purple to stop the eye massacre
 
-\usepackage[bookmarks=true, colorlinks=true, linkcolor=blue, citecolor= red]{hyperref}
 
 %fix for equals arrows
 %copy & paste
@@ -216,3 +215,13 @@ mark=at position 1 with {\draw[#1] (ta-base-1) -- (0,1pt);
 \usepackage[bottom]{footmisc}
 
 \renewcommand{\tilde}[1]{\widetilde{#1}}
+
+% hyperref should be loaded last
+\usepackage[
+	pdftitle = {Stable\ Homotopy\ and\ Generalized\ Homology},
+	pdfauthor = {J.\ F.\ Adams},
+	bookmarks = true, 
+	colorlinks = true, 
+	linkcolor = blue, 
+	citecolor = red
+]{hyperref}
