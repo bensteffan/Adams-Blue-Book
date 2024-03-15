@@ -1,0 +1,1 @@
+- Float graphics (and change references to account for this) for increased layout stability
