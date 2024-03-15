@@ -17,8 +17,8 @@
 
 \usepackage{microtype}
 
-\usepackage{tikz-cd,tikz}
-    \usetikzlibrary{calc}
+\usepackage{tikz}
+\usetikzlibrary{cd, calc, positioning}
 
 \usepackage{subfiles}
 \usepackage{titlesec}
@@ -190,11 +190,11 @@ mark=at position 1 with {\draw[#1] (ta-base-1) -- (0,1pt);
 \restoremacro\phi\varphi
 
 % some operators
-\newcommand{\Hom}{\te{Hom}}
-\newcommand{\Int}{\te{Int}}
-\newcommand{\Ext}{\te{Ext}}
-\DeclareMathOperator{\Tor}{\te{Tor}}
-\DeclareMathOperator{\Ker}{\te{Ker}}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Ker}{Ker}
 
 \DeclareMathOperator{\MU}{MU}
 \DeclareMathOperator{\BU}{BU}

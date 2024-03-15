@@ -30,7 +30,7 @@ A spectrum $E$ is said to be a \emph{ring-spectrum} \index{ring-spectrum} if it 
 \begin{tikzcd}
 E \wedge E \wedge E \arrow[dd, "1 \wedge \mu"'] \arrow[rr, "\mu \wedge 1"] &  & E \wedge E \arrow[dd, "\mu"] & S \wedge E \arrow[rr, "\eta \wedge 1"] \arrow[d] &  & E \wedge E \arrow[d, "\mu"] \\
                                                                            &  &                              & E \arrow[rr, "1"]                                &  & E                           \\
-E \wedge E \arrow[rr, "\mu"]                                               &  & E                            & E \wedge S \arrow[rr, "1 \wedge \eta"] \arrow[u] &  & E \wedge E \arrow[u, "\mu"]
+E \wedge E \arrow[rr, "\mu"]                                               &  & E                            & E \wedge S \arrow[rr, "1 \wedge \eta"] \arrow[u] &  & E \wedge E \arrow[u, "\mu"']
 \end{tikzcd}
 \]
 
@@ -40,7 +40,7 @@ Let $E$ is a ring-spectrum. We say a spectrum $F$ is a \emph{module-spectrum ove
 
 \[
 \begin{tikzcd}
-E \wedge E \wedge F \arrow[dd, "1 \wedge \nu"'] \arrow[rr, "\mu \wedge 1"] &  & E \wedge F \arrow[dd, "\nu"] & S \wedge F \arrow[rr, "\eta \wedge 1"] \arrow[dd, "\cong"] &  & E \wedge E \arrow[dd, "\nu"] \\
+E \wedge E \wedge F \arrow[dd, "1 \wedge \nu"'] \arrow[rr, "\mu \wedge 1"] &  & E \wedge F \arrow[dd, "\nu"] & S \wedge F \arrow[rr, "\eta \wedge 1"] \arrow[dd, "\cong"] &  & E \wedge F \arrow[dd, "\nu"] \\
                                                                            &  &                              &                                                   &  &                              \\
 E \wedge F \arrow[rr, "\nu"]                                               &  & F                            & F \arrow[rr, "1"]                                 &  & F                           
 \end{tikzcd}
@@ -61,8 +61,8 @@ E \wedge E \arrow[rruu, "\mu"']               &  &
 
 
 If $E$ is a ring-spectrum, we can use the product map $\mu \colon E \wedge E \lra E$ to obtain products with values in $E_*$ or $E^*$ instead of $(E \wedge E)_*$ or $(E \wedge E)^*$. For example, we obtain a cup-product 
-\[E^p(X,A) \otimes E^q(X,B) \lra E^{p+q}(X,A \smile B).\]
-Similarly for an action map $\nu \colon E \wedge E \lra F$.
+\[E^p(X,A) \otimes E^q(X,B) \lra E^{p+q}(X,A \cup B).\]
+Similarly for an action map $\nu \colon E \wedge F \lra F$.
 
 Practically all the examples of spectra which I have mentioned are, in fact, ring-spectra. I will only illustrate the case $E=H$. We have
 \[\pi_r (H \wedge H) = H_r(H) = \begin{cases}
@@ -71,7 +71,7 @@ Practically all the examples of spectra which I have mentioned are, in fact, rin
 \end{cases}\]
 so that by the Hurewicz theorem,
 \[H_0(H \wedge H) = \bbZ.\]
-Alternatively, by the Kunneth theorem
+Alternatively, by the Künneth theorem
 \[H_0(H \wedge H) \cong H_0(H) \otimes H_0(H) \cong \bbZ \otimes \bbZ \cong \bbZ.\]
 By the universal coefficient theorem,
 \[H^0(H \wedge H) = \Hom(\bbZ,\bbZ) = \bbZ.\]
@@ -120,7 +120,7 @@ Suppose that $M$ is a compact topological manifold, possibly with boundary. Then
 \[\check{E}^*(M) \lra E^*(M)\]
 is an isomorphism.
 \end{examples}
-In fact, the pair $M,\emptyset$ qualified as an open pair containing the compact pair $M,\emptyset$, and is terminal.
+In fact, the pair $M,\emptyset$ qualifies as an open pair containing the compact pair $M,\emptyset$, and is terminal.
 \begin{examples}[ii]
 Suppose $K$ is a point $x$. Then 
 \[\check{E}^*(x) \lra E^*(x)\]
@@ -161,16 +161,13 @@ is an isomorphism.
 \begin{proof}
 Consider the following commutative diagram.
 
-% Note: the math delimiter \[ was unnecessary and causing issues, I removed it
-% I also scaled it down to 0.7, fixed overfull hbox
 \[
-\adjustbox{scale=1, center}{
-\begin{tikzcd}
+\begin{tikzcd}[column sep = 2em]
 \dots \arrow[r] & {\check{E}^\ast(M,\partial M)} \arrow[r] \arrow[dd] & \check{E}^\ast(M) \arrow[dd, "\cong"] \arrow[r] & \check{E}^\ast(\partial M) \arrow[dd, "\cong"] \arrow[r, "\delta"] & {E^\ast(M,\partial M)} \arrow[dd] \arrow[r] & \dots \\
                 &                                                     &                                                 &                                                                    &                                             &       \\
 \dots \arrow[r] & {E^\ast(M,\partial M)} \arrow[r]                    & E^\ast(M) \arrow[r]                             & E^\ast(\partial M) \arrow[r, "\delta"]                             & {E^\ast(M,\partial M)} \arrow[r]            & \dots
 \end{tikzcd}
-}\]
+\]
 The rows are exact, and the two arrows marked are isomorphisms by a previous example. The result follows by the 5-lemma.
 \end{proof}
 
@@ -214,8 +211,11 @@ has $i_x^* \omega = \lambda(x)$ for any given section $\lambda$.
 
 Now in ordinary homology, the answer is yes: if you are given a section $\lambda$, there exists a cohomology class $\omega$ such that $i_x^* = \lambda(x)$ for each $x$, and $\omega$ is unique. However, the proof makes essential use of the dimension axiom. For a generalised cohomology theory the corresponding result is not true. There is an $n$-plane bundle $E \lra B$ and a section $\lambda \colon B \lra \bigcup_x \te{KO}^n(E_x,E_x^0)$ such that there exists no $w \in \te{KO}^n(E,E^0)$ with $i_x^* \omega = \lambda(x)$ for all $x$; in another such example the required $\omega$ exists but is not unique.
 
-It seems best to choose our definitions so as to avoid the difficulty. First I consider the meaning to be assigned to the word ``generator.'' Let $F$ be a ring-spectrum; then $F_*(\bbR^n,\bbR^n-0) = \tilde{F}^*(S^n)$ and $F^*(\bbR^n,\bbR^n-0) = \tilde{F}^*(S^n)$ are modules over $\pi_*(F)$. In fact each is a free module on one generator, because we have canonical classes
-\[\gamma_n \in F_n(\bbR^n,\bbR^n-0), \quad \gamma^n \in F^n(R^n-0).\]
+It seems best to choose our definitions so as to avoid the difficulty. First I consider the meaning to be assigned to the word ``generator.'' Let $F$ be a ring-spectrum; then $F_*(\bbR^n,\bbR^n-0) = \tilde{F}_*(S^n)$ and $F^*(\bbR^n,\bbR^n-0) = \tilde{F}^*(S^n)$ are modules over $\pi_*(F)$. In fact each is a free module on one generator, because we have canonical classes
+% Note that the second item here only reads $\gamma^n \in F^n(\bbR^n - 0)$ in the original text, but that's obviously nonsense and I'm (very nearly) certain that this here is what's intended
+\[
+	\gamma_n \in F_n(\bbR^n,\bbR^n-0), \quad \gamma^n \in F^n(\bbR^n, \bbR^n - 0).
+\]
 I will say that $\varphi \in F^*(\bbR^n,\bbR^n-0)$ is a \emph{generator} \index{generator of ring-spectrum} if $\{\varphi\}$ is a $\pi_*(F)$-base for $F^*(\bbR^n,\bbR^n-0)$. $\varphi$ is a generator if and only if $\varphi = u \gamma^n$, where $u$ is a unit in $\pi_*(F)$. $\varphi$ need not lie in $F^n(\bbR^n,\bbR^n-0)$, because we may have units of non-zero degree in $\pi_*(F)$; e.g., this occurs if $F=K$.
 
 The property which I need of generators is the following. Let $G$ be a module-spectrum over $F$. Then the map \[G_*(\bbR^n,\bbR^n-0) \lra \pi_*(G)\]
@@ -294,15 +294,16 @@ with $U \cap U' = \emptyset$, $V \cap V' = \emptyset$, $W \cap W' = \emptyset$. 
 \]
 commutes up to the sign $(-1)^{d+1}$. For we can easily reduce it to the case $W = \emptyset, U' = \emptyset$, by the following diagram.
 \[
-\adjustbox{scale=1, center}{
-\begin{tikzcd}
+\begin{tikzcd}[column sep = {5.8em, between origins}]
                              & {F_p(W', V')} \arrow[ld] \arrow[rd]\arrow[rr, "\partial"] &                                                & {F_{p - 1}(V', \emptyset)} \arrow[rd] \arrow[rr] &                       & {F_{p - 1}(V', U')} \arrow[ld] \\
 {F^{d - p}(V, W)} \arrow[rr] &                                                 & {F^{d - p}(V, \emptyset)} \arrow[rr, "\delta"] &                                                  & {F^{d - p + 1}(U, V)} &                               
 \end{tikzcd}
-}\]
+\]
 
 Now since $\omega \in E^d(U \times W',V \times V')$ and by \ref{thm:p3ch09.12}(ii) we have
-\[\delta((i^* \omega)/x) = (-1)^{d+1}(j^* \omega)/\partial x.\]
+\[
+	\delta((i^* \omega)/x) = (-1)^{d+1}(j^* \omega)/\partial x.
+\]
 
 Now we can start to pass to limits. Let us take a compact pair $K,L \subset M$ and consider the complementary open pair $M-L,M-K$. We vary $V',U'$ over open pairs contained in $M-L,M-K$, of course arranging that $U \cap U' = \emptyset$, $V \cap V' = \emptyset$. Now $\check{F}^*(K,L) = \varinjlim F^*(U,V)$, so with a class in $\check{F}^*(U,V)$ for any $U,V$ we get an image in $\check{F}^*(K,L)$. Now I claim that for any $x \in F_p(V',U')$, its image in $\check{F}^{d-p}(K,L)$ is independent of the choice of pair $U,V$, provided, of course, that there exists a pair $U,V \supset K,L$ with $U \cap U' = \emptyset$, $V \cap V' = \emptyset$. And this is immediate, by the following diagram.
 \[
@@ -348,31 +349,31 @@ Here $g(y) = \langle i_x^* \omega, y \rangle$. Our assumption is that $i_x^* \om
 The commutativity of the diagram follows easily from naturality. We can begin by supposing that we start from a class in $F_p(M,M-x)$ which comes from $y \in F_p(M,M-B)$, where $B$ is a small closed ball in a coordinate neighbourhood. (This uses \ref{prop:p3c10.1}.) If we apply $D$ and the map into $F^{d-p}(x)$, we obtain
 \[j^*((i^* \omega)/y),\]
 where $j \colon x \lra \Int B$ is the injection. We have
-\[j^*((i^*\omega/y) = ((j \times 1)^* i^* \omega)/y = i_x^*\omega/y = \langle i_x^* \omega, y \rangle.\]
+\[
+	j^*((i^*\omega/y) = ((j \times 1)^* i^* \omega)/y = i_x^*\omega/y = \langle i_x^* \omega, y \rangle. \qedhere
+\]
 \end{proof}
 \begin{remark}\label{rmk:p3c10.8}
 Suppose $K$ is a rectilinear simplex in a coordinate neighborhood and $L$ is one face of $K$ (which may be $K$ but must not be $\emptyset$). Then $D$ is an isomorphism between groups which are zero.
 \end{remark}
-Note: coordinate transformations are supposed to map $\partial M$ into a linear subspace of $\bbR^n$, e.g., $\bbR^{n-1}$
+Note: coordinate neighborhoods are supposed to map $\partial M$ into a linear subspace of $\bbR^n$, e.g., $\bbR^{n-1}$.
 \begin{proof}
 (i) $\check{F}^*(K,L) = 0$. In fact, we can even show this without appealing to the homotopy invariance of $\check{F}^*$; just surround $K,L$ by a confinal system of open convex neighborhoods $U,V$, for which $F^*(U,V) = 0$.
 
-(ii) Also $F_*(M-L,M-K) = 0$. This is seen geometrically; see the accompanying figure. We can write $K$ as the join $K = L*K'$. If $K'=\emptyset$,$K=L$ then the result is trivially true.  Since $K' \cap \partial M = \emptyset$, we can draw a slightly larger simplex $K''$ slightly farther away from $L$ so that $L*K''$ is $n$-dimensional and contains $L * K'$, while $L*K' \cap \partial(L*K'') = L$. Then $(L*K'')-L$ is homeomorphic to $L \times (0,1] \times K'' \cup K''$:
+(ii) Also $F_*(M-L,M-K) = 0$. This is seen geometrically; see the accompanying figure. We can write $K$ as the join $K = L * K'$. If $K' = \emptyset$, $K = L$ then the result is trivially true.  Since $K' \cap \partial M = \emptyset$, we can draw a slightly larger simplex $K''$ slightly farther away from $L$ so that $L*K''$ is $n$-dimensional and contains $L * K'$, while $L*K' \cap \partial(L*K'') = L$. Then $(L*K'')-L$ is homeomorphic to $L \times (0,1] \times K'' \cup K''$:
+% TODO layout. there's a big, ugly void caused by this here
 \[
-\adjustbox{scale=0.9}{
-\begin{tikzpicture}
+\begin{tikzpicture}[scale = .9]
     \draw (0, 2) to (0, 0) to (5, 0) to (5, 2);
     \draw[dashed] (5, 2) to (4, 2);
     \draw (4, 2) to (4, 1.25) to (1, 1.25) to (1, 2);
     \draw[dashed] (1, 2) to (0, 2);
-\end{tikzpicture}}
-\adjustbox{scale=0.8}{
-\usetikzlibrary{positioning}
-\begin{tikzpicture}
+\end{tikzpicture}\qquad
+\begin{tikzpicture}[scale = .8]
     \draw (0, 0) to node[below] {$K''$} (5, 0) to (2.5, 4.25) node[right] {$L$} to cycle;
     
     \draw (2.5, 4.25) node[below=0.5] {$K$} to (1.25, 1.25) to node[above] {$K'$} (3.6, 1.25) to cycle;
-\end{tikzpicture}}
+\end{tikzpicture}
 \]
 Now clearly $L*K'' - L*K' \lra L*K'' - L$ is a homotopy equivalence, by maps and homotopies keeping $\partial(L* K'') - L$ fixed throughout. These maps and homotopies extend over $M$ by keeping everything fixed outside $L*K''$. 
 \end{proof}
@@ -381,14 +382,12 @@ Suppose $K$ is a rectilinear simplex in a coordinate neighborhood and $L = \empt
 \end{remark}
 \begin{proof}
 Since $L = \emptyset$, we have $K \cap \partial M = \emptyset$. Let $x$ be one vertex of $K$. Then we have the following commutative diagram.
-%TODO: alignment slightly off
 \[
-\adjustbox{scale=0.9, center}{
-\begin{tikzcd}
+\begin{tikzcd}[column sep = tiny, font = \footnotesize]
 0 = {F_p(M -x, M - K)} \arrow[r]       & {F_p(M, M- K)} \arrow[d] \arrow[r] & {F_p(M, M - x)} \arrow[d, "\cong"] \arrow[r] & {F_{p - 1}(M - x, M - K)} = 0 \\
 0 = {\breve F^{d - p}(K, x)} \arrow[r] & \breve F^{d - p}(K) \arrow[r]      & \breve F^{d - p}(x) \arrow[r]                & {\breve F^{d - p + 1}(K, x)} = 0
 \end{tikzcd}
-}\]
+\]
 The four groups marked zero are so by \ref{rmk:p3c10.8}. The map marked as an isomorphism is so by \ref{rmk:p3c10.7}.
 \end{proof}
 \begin{remark}\label{rmk:p3c10.10}
@@ -407,6 +406,7 @@ Suppose $K,L$ is a finite simplicial pair linearly embedded in a coordinate neig
 \begin{proof}
 By barycentric subdivision we can suppose that for each simplex $\sigma$ of $K$, $\sigma \cap L$ is either 0 or 1 faces of $\sigma$. For such pairs we argue by induction over the number of simplices in $K$. If this number is zero the result is trivial; if this number is one it is true by \ref{rmk:p3c10.8} and \ref{rmk:p3c10.9}. The inductive step is immediate from \ref{rmk:p3c10.10}.
 \end{proof}
+% TODO float this correctly, and change a reference above that refers to this as "on the next page"
 \[
 \adjustbox{scale = 0.7, center}{
 \rotatebox{90}{%
